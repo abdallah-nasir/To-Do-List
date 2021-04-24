@@ -92,6 +92,8 @@ DATABASES = {
     }
 }
 
+DATABASE_URL="postgres://wezmxxbqdpqeoh:862163b0ede542d80bb6ecfe0f66bda45a1df6b583e5dcc173c99f25a3eff296@ec2-34-195-233-155.compute-1.amazonaws.com:5432/dlp83nv5thfg"
+DATABASES['default'] = dj_database_url.config(default=DATABASE_URL)
 
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
