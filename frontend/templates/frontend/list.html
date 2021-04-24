@@ -97,7 +97,7 @@
 		</div>
 
 	</div>
-
+	
 	<script type="text/javascript">
 		/*
 			KEY COMPONENTS:
@@ -146,7 +146,7 @@
 
 
 
-			var url = 'http://127.0.0.1:8000/api/task-list/'
+			var url = '{% url "api:task-list" %}'
 
 			fetch(url)
 			.then((resp) => resp.json())
@@ -237,9 +237,9 @@
 		form.addEventListener('submit', function(e){
 			e.preventDefault()
 			console.log('Form submitted')
-			var url = 'http://127.0.0.1:8000/api/task-create/'
+			var url = '{% url "api:task-create" %}'
 			if (activeItem != null){
-				var url = `http://127.0.0.1:8000/api/task-update/${activeItem.id}/`
+				var url = `https://to-do-lists-webapp.herokuapp.com/api/task-update/${activeItem.id}/`
 				activeItem = null
 			}
 
@@ -268,11 +268,12 @@
 			activeItem = item
 			document.getElementById('title').value = activeItem.title
 		}
-
-
+		
+	
+	
 		function deleteItem(item){
 			console.log('Delete clicked')
-			fetch(`http://127.0.0.1:8000/api/task-delete/${item.id}/`, {
+			fetch(`https://to-do-lists-webapp.herokuapp.com/api/task-delete/${item.id}/`,{
 				method:'DELETE', 
 				headers:{
 					'Content-type':'application/json',
@@ -287,7 +288,7 @@
 			console.log('Strike clicked')
 
 			item.completed = !item.completed
-			fetch(`http://127.0.0.1:8000/api/task-update/${item.id}/`, {
+			fetch(`https://to-do-lists-webapp.herokuapp.com/api/task-update/${item.id}/`, {
 				method:'POST', 
 				headers:{
 					'Content-type':'application/json',
